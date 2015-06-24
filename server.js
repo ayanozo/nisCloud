@@ -11,6 +11,8 @@ var socketio = require('socket.io');
 var express = require('express');
 
 var appModule = require('./appModules');
+var result = appModule.util.add(1, 2);
+console.log("result:" + result);
 
 //
 // ## SimpleServer `SimpleServer(obj)`
@@ -25,6 +27,7 @@ var io = socketio.listen(server);
 router.use(express.static(path.resolve(__dirname, 'client')));
 var messages = [];
 var sockets = [];
+
 
 io.on('connection', function (socket) {
     messages.forEach(function (data) {
